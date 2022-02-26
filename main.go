@@ -6,6 +6,7 @@ import (
 	"os"
 
 	"web-service-gin/config"
+	"web-service-gin/db"
 	"web-service-gin/server"
 )
 
@@ -18,6 +19,6 @@ func main() {
 	}
 	flag.Parse()
 	config.Init(*environment)
+	db.Connect()
 	server.Init()
-
 }

@@ -9,11 +9,9 @@ import (
 	"go.mongodb.org/mongo-driver/mongo/options"
 )
 
-type DB struct {
-	client *mongo.Client
-}
+var db *mongo.Database
 
-func Connect() (*DB, error) {
+func Connect() {
 	config := config.GetConfig()
 	uri := config.GetString("db.uri")
 
@@ -33,9 +31,10 @@ func Connect() (*DB, error) {
 		}
 	}()
 
-	db := DB{
-		client,
-	}
+	db = client.Database(config.GetString("db.collection"))
+}
 
-	return &db, nil
+// GetDB returns an instance of a *mongo.Client
+func GetDB() *mongo.Database {
+	return db
 }
