@@ -1,6 +1,6 @@
 # web-service-gin
 
-This project is an example to showcase a web service built with github.com/gin-gonic/gin.
+This project is an example to showcase a web service built with [github.com/gin-gonic/gin](github.com/gin-gonic/gin).
 
 ## References
 
