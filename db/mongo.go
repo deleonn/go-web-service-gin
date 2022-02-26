@@ -25,11 +25,10 @@ func Connect() {
 		panic(err)
 	}
 
-	defer func() {
-		if err := client.Disconnect(context.TODO()); err != nil {
-			panic(err)
-		}
-	}()
+	if err := client.Ping(context.TODO(), nil); err != nil {
+		// Can't connect to Mongo server
+		log.Fatal(err)
+	}
 
 	db = client.Database(config.GetString("db.collection"))
 }
