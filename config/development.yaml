@@ -2,3 +2,6 @@ server:
   port: 8080
   trustedProxies:
     - 127.0.0.1
+
+db:
+  uri: "mongodb://127.0.0.1:27017"
